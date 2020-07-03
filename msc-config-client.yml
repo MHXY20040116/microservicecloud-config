@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 25010
+
+spring:
+  profiles: dev
+  application:
+    name: msc-config-client
+  datasource:
+    url: jdbc:mysql://192.168.0.82:3306/sys?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka21010.cn:21010/eureka/,http://eureka21020.cn:21020/eureka/,http://eureka21030.cn:21030/eureka/
+---
+server:
+  port: 25020
+
+spring:
+  profiles: test
+  application:
+    name: msc-config-client
+  datasource:
+    url: jdbc:mysql://192.168.0.82:3306/sys?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka21010.cn:21010/eureka/,http://eureka21020.cn:21020/eureka/,http://eureka21030.cn:21030/eureka/
+---
+# 请保存为UTF-8格式
